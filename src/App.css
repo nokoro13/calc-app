@@ -2,37 +2,113 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: linear-gradient(25DEG, azure 25%, black 100%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Layout for the calculator*/
+.calc-app {
+  display: grid;
+  padding: 2px;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: minmax(6rem, auto) repeat(6, 6rem);
+  column-gap: 2px;
+  row-gap: 2px;
+  max-width: max-content;
+  margin: auto;
+  border: solid black 20px;
+  border-radius: 10px;
+}
+
+/*Class with big button (AC) span 2 spaces */
+.calc-app > .big-button {
+  grid-column: span 2;
+}
+
+.calc-app > .calc-output {
+  grid-column: 1 / -1;
+  grid-row: span 2;
+  background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-end;
+  justify-content: space-around;
+  word-wrap: break-word;
+  word-break: break-all;
+  padding: 1rem;
+  border: 5px solid #FFFFFF;
+}
+
+.equals {
+  grid-column: 3 / 5;
+}
+
+.zero {
+  grid-column: 2;
+}
+
+.display {
+  color: greenyellow;
+  font-size: 3.5rem;
+  font-family: Roboto;
+}
+
+button {
+  font-size: 2rem;
   color: white;
+  background-color: black;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus {
+  background-color: dodgerblue;
+  color: black;
 }
+
+.symbol {
+  background-color: #fffb7d;
+  color: black;
+}
+
+.symbol:hover {
+  background-color: rgba(255,251,125, 0.5);
+  color: black;
+}
+
+.symbol:focus {
+  background-color: rgba(255,165,0);
+}
+
+.equals {
+  background-color: #85ffbd;
+  color: black;
+}
+
+.equals:hover {
+  background-color: rgba(133,255,189, 0.5);
+}
+
+.equals:focus {
+  background-color: lime;
+}
+
+#delete-btn {
+  background-color: violet;
+}
+
+#delete-btn:hover {
+  background-color: rgba(238,130,238, 0.5);
+}
+
+#delete-btn:focus {
+  background-color: hotpink;
+}
+
